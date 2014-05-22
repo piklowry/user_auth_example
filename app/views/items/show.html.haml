@@ -1,0 +1,35 @@
+%br
+%br
+- @images.each do |image|
+  .col-xs-5.col-sm-5
+    .panel.panel-default
+      .img.thumbnail
+        = image_tag image["url_170x135"]
+        %a.menu-item.list-group-item{:href => "#"}
+        .panel-body
+          %p.lead
+          = @item.name
+          %br
+          %br
+          = @item.description
+
+
+/ = @atom_feed
+
+= @user_feed
+
+/ - @images.each do |image|
+/   %div
+/     .col-sm-3.col-xs-6
+/       .productsrow
+/         .product.menu-category
+/           .menu-category-name.list-group-item.active= @item.name
+/           .product-image
+/             %img.product-image.menu-item.list-group-item= image_tag image["url_170x135"] ,:style => "overflow: hidden"
+/           %a.menu-item.list-group-item{:href => "#"}
+/             Belt
+/             %span.badge= @item.price
+
+
+
+= image_tag ["url_170x135"]

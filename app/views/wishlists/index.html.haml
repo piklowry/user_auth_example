@@ -1,4 +1,19 @@
-%table
+%br
+%br
+
+#wishlists_form
+	= form_for @new_wishlist, :remote => true do |f|
+		= f.label :name
+		= f.text_field :name
+		= f.label :description
+		= f.text_field :description
+		= f.submit
+
+%br
+%br
+%br
+
+%table.table.table-striped
 	%thead
 		%th Name
 		%th Description 
@@ -6,15 +21,13 @@
 	%tbody
 		- @wishlists.each do |wishlist|
 			%tr
-				%td= link_to wishlist.name, wishlist
+				%th= link_to wishlist.name, wishlist
 				%td= wishlist.description
 				%td= wishlist.items.count
+				%td= link_to "Edit", edit_wishlist_path(wishlist), :id => 'opener', :class => "btn", :remote => true, "data-toggle" => "modal", "data-target" => "my-modal"
+				%td= link_to "Remove", wishlist, :remote => true, :confirm => 'Are you sure?', :method => :delete
 
-%br
-%br
-= form_for Wishlist.new do |f|
-	= f.label :name
-	= f.text_field :name
-	= f.label :description
-	= f.text_field :description
-	= f.submit
+
+
+
+

@@ -1,0 +1,15 @@
+/ #wishlists_list= render :partial => "wishlists"
+
+/ %table.table.table-striped
+/ 	%thead
+/ 		%th Name
+/ 		%th Description 
+/ 		%th # of Items
+/ 	%tbody
+/ 		- @wishlists.each do |wishlist|
+/ 			%tr
+/ 				%th= link_to wishlist.name, wishlist
+/ 				%td= wishlist.description
+/ 				%td= wishlist.items.count
+/ 				%td= link_to "Edit", edit_wishlist_path(wishlist), :id => 'opener', :class => "btn", :remote => true, "data-toggle" => "modal", "data-target" => "my-modal"
+/ 				%td= link_to "Remove", wishlist, :remote => true, :confirm => 'Are you sure?', :method => :delete
