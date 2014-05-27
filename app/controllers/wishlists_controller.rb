@@ -22,7 +22,7 @@ class WishlistsController < ApplicationController
 
 
 	def create
-		# @wishlist = WishList.new 
+		@wishlist = WishList.new 
 		# @wishlist[:user_id] = current_user.id
 		@wishlist = current_user.wishlists.build(wishlist_params)
 		if @wishlist.save

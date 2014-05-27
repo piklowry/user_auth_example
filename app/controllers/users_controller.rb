@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 	skip_filter :ensure_logged_in, only: [:new, :create, :destroy]
 
+	
+
 	def new
 		@new_user = User.new
 	end

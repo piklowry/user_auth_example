@@ -29,7 +29,7 @@ class Item < ActiveRecord::Base
 		self[:description] = listing["description"]
 		self[:price] = listing["price"]
 		self[:quantity] = listing["quantity"]
-		self[:style] = listing["style"]
+		# self[:style] = listing["style"]
 		self[:views] = listing["views"]
 		self[:photo_pic] = get_pictures_from_etsy
 		

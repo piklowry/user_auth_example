@@ -3,7 +3,7 @@
 
 - @wishlist.items.each do |item|
   %div
-    .col-sm-3.col-xs-6
+    .col-sm-4.col-xs-8
       .productsrow
         .product.menu-category
           .menu-category-name.list-group-item.active= item.name
@@ -12,6 +12,30 @@
           %a.menu-item.list-group-item{:href => "#"}
             = link_to item.name, wishlist_item_path(@wishlist, item)
             %span.badge= item.price
+
+/ - @wishlist.items.each do |item|
+/   %div
+/     .col-sm-3.col-xs-6
+/       .productsrow
+/         .product.menu-category
+/           .menu-category-name.list-group-item.active= item.name
+/           .product-image
+/             %img.product-image.menu-item.list-group-item= image_tag item.photo_pic
+/           %a.menu-item.list-group-item{:href => "#"}
+/             = link_to item.name, wishlist_item_path(@wishlist, item)
+/             %span.badge= item.price
+
+/ - @.items.each do |item|
+/   %div
+/     .col-sm-3.col-xs-6
+/       .productsrow
+/         .product.menu-category
+/           .menu-category-name.list-group-item.active= item.name
+/           .product-image
+/             %img.product-image.menu-item.list-group-item= image_tag item.photo_pic
+/           %a.menu-item.list-group-item{:href => "#"}
+/             = link_to item.name, wishlist_item_path(@wishlist, item)
+/             %span.badge= item.price
 
 
 = link_to "Add new item to list", new_wishlist_item_path(wishlist_id: @wishlist.id)

@@ -1,22 +1,20 @@
 %br
 %br
-- @images.each do |image|
-  .col-xs-5.col-sm-5
-    .panel.panel-default
-      .img.thumbnail
-        = image_tag image["url_170x135"]
-        %a.menu-item.list-group-item{:href => "#"}
-        .panel-body
-          %p.lead
-          = @item.name
-          %br
-          %br
-          = @item.description
-
+.col-xs-5.col-sm-5
+  .panel.panel-default
+    .img.thumbnail
+      = image_tag @images.first["url_170x135"]
+      %a.menu-item.list-group-item{:href => "#"}
+      .panel-body
+        %p.lead
+        = @item.name
+        %br
+        %br
+        = @item.description
 
 / = @atom_feed
 
-= @user_feed
+/ = @user_feed
 
 / - @images.each do |image|
 /   %div
@@ -32,4 +30,3 @@
 
 
 
-= image_tag ["url_170x135"]

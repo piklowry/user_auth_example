@@ -2,7 +2,7 @@
 %br
 
 #wishlists_form
-	= form_for @new_wishlist, :remote => true do |f|
+	= form_for Wishlist.new, :remote => true do |f|
 		= f.label :name
 		= f.text_field :name
 		= f.label :description
@@ -24,10 +24,27 @@
 				%th= link_to wishlist.name, wishlist
 				%td= wishlist.description
 				%td= wishlist.items.count
-				%td= link_to "Edit", edit_wishlist_path(wishlist), :id => 'opener', :class => "btn", :remote => true, "data-toggle" => "modal", "data-target" => "my-modal"
 				%td= link_to "Remove", wishlist, :remote => true, :confirm => 'Are you sure?', :method => :delete
+				/ %td= link_to "Edit", edit_wishlist_path(wishlist), :id => 'opener', :class => "btn", :remote => true, "data-toggle" => "modal", "data-target" => "my-modal"
+				/ %td= link_to "Remove", wishlist, :remote => true, :confirm => 'Are you sure?', :method => :delete
 
 
+/ = link_to "hook up github", github_auth_path
 
+/ %br
+/ %br
+/ %h3 create a new gist for Github
+/ %h5 this has nothing to do with wishlists ro items
+/ %br
 
-
+/ = form_tag create_gist_path do
+/ 	= label_tag :title
+/ 	= text_field_tag :title
+/ 	%br
+/ 	= label_tag :description
+/ 	= text_field_tag :description
+/ 	%br
+/ 	= label_tag "file content"
+/ 	= text_field_tag :content
+/ 	%br
+/ 	= submit_tag "create gist"
